@@ -1,33 +1,42 @@
-os.execute("chcp 65001")
----Descrição do monstro---
-local MONSTER_NAME, DESCRIPTION, EMOJI, TIME, SOUND = "SlenderMan", "Ágil, muito inteligente e também muito forte, TOME CUIDADO!", "🉐", "Noturno", "Silencioso"
----Attributes---
-local ATTACK_ATTRIBUTE, SPEED_ATTRIBUTE, DEFENSE_ATTRIBUTE, INTELIGENCE_ATTRIBUTE  = 10, 8, 3, 7
----Função que recebe um atributo, e transforma em barra de progresso---
+os.execute('chcp 65001')
 
-local function ProgressBar(attribute)
-   local result = ""
-   local EmptyChar, FullChar = "⬜", "⬛"
-for i = 1, 10, 1 do
-    if attribute <= i then
-    result = result .. EmptyChar
-    else
-    result = result .. FullChar
+local NOME = 'SlenderMan'
+local DESCRICAO = 'Sútil, Rápido e tem super poderes de teleporte!'
+local EMOJI = '⚠'
+--Atributos--
+local ATTACK = 10
+local DEFENSE = 9
+local INTELIGENCE = 5
+local SPEED = 10
+--Barra de progresso--
+local function ProgressBar(attributes)
+        local result = ''
+        local FullChar = '⬛'
+        local EmptyChar = '⬜'
+    for i = 1, 10, 1 do
+        if attributes >= i then
+            result = result .. FullChar
+        else
+            result = result .. EmptyChar
         end
     end
-return result
+    return result
 end
+--Carteira--
+print('===============================================================================================================|')
+print('| Nome: '            .. NOME)
+print('|Descrição: '        .. DESCRICAO)
+print('|Emoji Favorito:'    ..EMOJI)
+print('|---------------------------------------------------------------------------------------------------------------|')
+print('|ATRIBUTOS!')
+print('|Ataque: '       .. ProgressBar(ATTACK))
+print('|Defesa: '       .. ProgressBar(DEFENSE))
+print('|Velocidade: '   .. ProgressBar(SPEED))
+print('|Inteligência: ' .. ProgressBar(INTELIGENCE))
+print('|')
+print('|')
+print('|')
+print('|')
+print('===============================================================================================================|')
 
----Cartão
-print("======================================================================================")
-print("| Nome:            " .. MONSTER_NAME)
-print("| Descrição:       " .. DESCRIPTION)
-print("| Emoji Favorito:   " .. EMOJI)
-print("| Horário Favorito: " .. TIME)
-print("| ATRIBUTOS!")
-print("| Ataque :           "..          ProgressBar(ATTACK_ATTRIBUTE))
-print("| Defesa :           "..          ProgressBar(DEFENSE_ATTRIBUTE))
-print("| Velocidade:        "..          ProgressBar(SPEED_ATTRIBUTE))
-print("| Inteligência:      "..          ProgressBar(INTELIGENCE_ATTRIBUTE))
-print("|")
-print("======================================================================================")
+---OBS: Refeito estáva com alguns erros
